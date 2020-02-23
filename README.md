@@ -6,7 +6,7 @@ A generic table matching console application using .net core and entity framewor
 2. Program automatically inserts some seed data. If already exists any, will update with latest value.
 3. MatchTable.cs class does the matching and returns a matching response. 
 4. MatchTable.FindMatch takes the 3 parameters (source entity type, target entity type, primary key)
-5. MatchTable.SetBatchSize() taken one integer parameter to control the batch limit from client
+5. MatchTable.SetBatchSize() take one integer parameter to control the batch limit from client
 
 
 ##### Technologies
