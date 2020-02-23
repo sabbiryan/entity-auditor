@@ -13,3 +13,6 @@ A generic table matching console application using .net core and entity framewor
 1. Microsoft.NetCore App
 2. Entity Framework Core 3.1
 3. Entity Framework Plus Core 
+
+##### Sample 
+View sample output from <a href="https://github.com/sabbiryan/entity-auditor/blob/master/Output.PNG">here</a>
