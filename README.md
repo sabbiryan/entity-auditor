@@ -1,12 +1,25 @@
 ### Entity Auditor
-A generic table matching console application using .net core and entity framework core and entity framework plus core
+A generic table matching console application using .net core and entity framework core and entity framework plus core. You can run the matching upon on any two different entities where the booth primary key is the same. For the best output ensure both entities scheme are same.
+
+##### Setup with visual studio
+1. Clone the repository
+2. Open solution is visual studio
+3. Set your database server name in appsettings.json "Default": "server=YourDatabaseServerName;database=AuditorDb;Trusted_Connection=True;"
+4. Build and run the program (Ensure Client project is marked as startup project)
+
+##### Download
+1. Download an executable exe version from <a href="https://github.com/sabbiryan/entity-auditor/tree/master/EXE">here</a>
+2. Extract the zip.
+3. Update the appsetting.json with your database service name "Default": "server=YourDatabaseServerName;database=AuditorDb;Trusted_Connection=True;"
+4. Run Client.exe and start playing.
 
 ##### View Insights
 1. Starting point : Program.cs
-2. Program automatically inserts some seed data. If already exists any, will update with latest value.
-3. MatchTable.cs class does the matching and returns a matching response. 
-4. MatchTable.FindMatch takes the 3 parameters (source entity type, target entity type, primary key)
-5. MatchTable.SetBatchSize() take one integer parameter to control the batch limit from client
+2. Program automatically creates the database and inserts some seed data. If any already exists,it will update with the latest value.
+3. You can provide the source, target and primary key as user define inputs. Find the source code in DynamicInputHandler.cs
+4. MatchTable.cs class does the matching and returns a matching response. 
+5. MatchTable.FindMatch takes the 3 parameters (source entity type, target entity type, primary key)
+6. MatchTable.SetBatchSize() take one integer parameter to control the batch limit from client
 
 
 ##### Technologies
