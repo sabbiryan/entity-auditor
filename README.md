@@ -28,4 +28,7 @@ A generic table matching console application using .net core and entity framewor
 3. Entity Framework Plus Core 
 
 ##### Sample 
-View sample output from <a href="https://github.com/sabbiryan/entity-auditor/blob/master/Output.PNG">here</a>
+View sample outputs from <a href="https://github.com/sabbiryan/entity-auditor/tree/master/Samples">here</a>
+
+<img src="https://github.com/sabbiryan/entity-auditor/blob/master/Samples/Output%20Employee.PNG" width="600px">
+<img src="https://github.com/sabbiryan/entity-auditor/blob/master/Samples/Output%20Student.PNG" width="600px">
