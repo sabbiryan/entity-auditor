@@ -5,7 +5,10 @@ namespace DataSource
 {
     public class ContextProvider
     {
-        public static DbContextOptions<AuditorDbContext> GetContextOptions(string connectionStringName = "Default")
+        public static DbContextOptions<AuditorDbContext> ContextOptions;
+        public static string ConnectionString;
+
+        public static void SetContextOptions(string connectionStringName = "Default")
         {
             var configuration = ConfigurationProvider.GetConfiguration();
 
@@ -13,7 +16,18 @@ namespace DataSource
             var connectionString = configuration.GetConnectionString(connectionStringName);
             dbContextOptionsBuilder.UseSqlServer(connectionString);
 
-            return dbContextOptionsBuilder.Options;
+            ContextOptions = dbContextOptionsBuilder.Options;
+            ConnectionString = connectionString;
+        }
+
+
+        public static void SwitchContextOptions(string connectionString)
+        {
+            var dbContextOptionsBuilder = new DbContextOptionsBuilder<AuditorDbContext>();
+            dbContextOptionsBuilder.UseSqlServer(connectionString);
+
+            ContextOptions = dbContextOptionsBuilder.Options;
+            ConnectionString = connectionString;
         }
     }
 }

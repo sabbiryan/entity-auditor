@@ -1,50 +1,58 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using Client.DynamicInputs;
 using Client.MatchTables;
 using DataSource;
 using DataSource.Employees;
-using DataSource.Seeds;
-using Microsoft.EntityFrameworkCore;
 
 namespace Client
 {
-    class Program
+    internal class Program
     {
-        static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
-            await EmployeeSourceSeeding.Run();
-            await EmployeeTargetSeeding.Run();
+            await DatabaseService.Ensure();
 
             Console.WriteLine("Processing table matching....");
 
+            StartTableMatching:
+            var input = DynamicInputHandler.TakeInput();
 
             var matchTable = new MatchTable();
             matchTable.SetBatchSize(10);
-            var response = await matchTable.FindMatch(typeof(EmployeeSource), typeof(EmployeeTarget), nameof(EmployeeBase.SocialSecurityNumber));
+            MatchTableResponse response;
+            try
+            {
+                response = await matchTable.FindMatch(input.SourceEntity, input.TargetEntity, input.PrimaryKey);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine($"The source and target tables schema may does not match. Starting the matching again... \n\n");
+                goto StartTableMatching;
+            }
+
 
             Console.WriteLine("Added\n---------");
-            foreach (var item in response.Added)
-            {
-                Console.WriteLine($"{item.Message}");
-            }
+            foreach (var item in response.Added) Console.WriteLine($"{item.Message}");
 
             Console.WriteLine("\nRemoved\n---------");
-            foreach (var item in response.Removed)
-            {
-                Console.WriteLine($"{item.Message}");
-            }
+            foreach (var item in response.Removed) Console.WriteLine($"{item.Message}");
 
             Console.WriteLine("\nChanges\n---------");
-            foreach (var item in response.Changes)
-            {
-                Console.WriteLine($"{item.Message}");
-            }
+            foreach (var item in response.Changes) Console.WriteLine($"{item.Message}");
 
             Console.WriteLine("\n\nFinished table matching....");
+
+            Console.WriteLine("\n\nAre you wish to play with another entities??\n1. Yes \t2. Press any other key to exit.");
+            var action = Console.ReadLine();
+            if (action == "1" || action?.ToLower() == "yes")
+            {
+                goto StartTableMatching;
+            }
+
         }
     }
-
-   
 }

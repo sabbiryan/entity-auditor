@@ -11,9 +11,9 @@ namespace DataSource.Seeds
 
         public static async Task Run()
         {
-            Console.WriteLine("Creating target seed....");
+            Console.WriteLine("Creating employee target seed....");
 
-            using (var context = new AuditorDbContext(ContextProvider.GetContextOptions()))
+            using (var context = new AuditorDbContext(ContextProvider.ContextOptions))
             {
                 List<EmployeeTarget> sources = new List<EmployeeTarget>()
                 {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using DataSource.Employees;
+using DataSource.Students;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -16,13 +17,12 @@ namespace DataSource
         }
 
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(@"Server=.\SQLExpress;Database=AuditorDb;Trusted_Connection=True;");
-        //}
-
 
         public virtual DbSet<EmployeeSource> EmployeeSources { get; set; }
         public virtual DbSet<EmployeeTarget> EmployeeTargets { get; set; }
+
+
+        public virtual DbSet<StudentSource> StudentSources { get; set; }
+        public virtual DbSet<StudentTarget> StudentTargets { get; set; }
     }
 }

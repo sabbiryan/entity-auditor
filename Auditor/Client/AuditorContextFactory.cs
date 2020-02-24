@@ -7,7 +7,8 @@ namespace Client
     {
         public AuditorDbContext CreateDbContext(string[] args)
         {
-            return new AuditorDbContext(ContextProvider.GetContextOptions());
+            ContextProvider.SetContextOptions();
+            return new AuditorDbContext(ContextProvider.ContextOptions);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Client.MatchTables
         {
             var response = new MatchTableResponse();
 
-            using (var context = new AuditorDbContext(ContextProvider.GetContextOptions()))
+            using (var context = new AuditorDbContext(ContextProvider.ContextOptions))
             {
                 context.ChangeTracker.AutoDetectChangesEnabled = false;
 

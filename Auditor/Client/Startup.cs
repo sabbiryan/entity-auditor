@@ -23,7 +23,6 @@ namespace Client
             services.AddDbContext<AuditorDbContext>(options =>
                 options.UseSqlServer(_configuration.GetConnectionString("Default"),
                     x => x.MigrationsAssembly(nameof(DataSource))));
-            
 
             // Add access to generic IConfigurationRoot
             services.AddSingleton<IConfigurationRoot>(_configuration);
