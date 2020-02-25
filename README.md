@@ -19,7 +19,7 @@ A generic table matching console application using .net core and entity framewor
 
 ##### View Insights
 1. Starting point : Program.cs
-2. Program automatically creates the database and inserts some seed data. If any already exists,it will update with the latest value.
+2. Program automatically creates the database and inserts some seed data. If any already exists,it will update with the latest value. See DatabaseService.cs for detail reference.
 3. You can provide the source, target and primary key as user define inputs. Find the source code in DynamicInputHandler.cs
 4. MatchTable.cs class does the matching and returns a matching response. 
 5. MatchTable.FindMatch takes the 3 parameters (source entity type, target entity type, primary key)
@@ -28,8 +28,16 @@ A generic table matching console application using .net core and entity framewor
 
 ##### Technologies
 1. Microsoft.NetCore App
-2. Entity Framework Core 3.1
-3. Entity Framework Plus Core 
+2. Code First Approach
+3. Entity Framework Core 3.1
+4. Entity Framework Plus Core 
+
+##### Limitations
+As I have used code first approach there are some limitations which I should notice.
+1. For new tables is database, need to create new models and add the models reference on AuditorDbContext and also need to create a new migration using Add-Migration command
+2. For working with any database(database first approved or sql query version) just changing the connection string, the existing application needs some breaking changes. I will update it in later versions.
+3. To test the existing database, they need to use entity framework core command Scaffold-DbContext for DataSource project and replace the AuditorDbContext with the Scaffold generated DbContext. In my next release I will have the context configured at first.
+
 
 ##### Sample 
 View sample outputs from <a href="https://github.com/sabbiryan/entity-auditor/tree/master/Samples">here</a>
