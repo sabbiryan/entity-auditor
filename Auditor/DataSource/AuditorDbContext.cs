@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using DataSource.Employees;
+using DataSource.Persons;
 using DataSource.Students;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
@@ -24,5 +25,10 @@ namespace DataSource
 
         public virtual DbSet<StudentSource> StudentSources { get; set; }
         public virtual DbSet<StudentTarget> StudentTargets { get; set; }
+
+
+        public virtual DbSet<PersonSource> PersonSources { get; set; }
+        public virtual DbSet<PersonTarget> PersonTargets { get; set; }
     }
+
 }

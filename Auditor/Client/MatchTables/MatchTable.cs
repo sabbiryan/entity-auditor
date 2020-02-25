@@ -49,7 +49,10 @@ namespace Client.MatchTables
                         if (propertyInfo != null)
                         {
                             var value = propertyInfo.GetValue(item)?.ToString();
-                            var expression = $"x.{primaryKey}==\"{value}\"";
+                            var expression =
+                                propertyInfo.PropertyType.Name == nameof(System.Int32) || propertyInfo.PropertyType.Name == nameof(System.Int64)
+                                    ? $"x.{primaryKey}=={value}"
+                                    : $"x.{primaryKey}==\"{value}\"";
                             var targetItem = sources.SingleOrDefaultDynamic(x => expression);
 
                             if (targetItem != null)

@@ -14,6 +14,7 @@ namespace Client
         private static async Task Main(string[] args)
         {
             await DatabaseService.Ensure();
+            await SeedHelper.Run();
 
             Console.WriteLine("Processing table matching....");
 

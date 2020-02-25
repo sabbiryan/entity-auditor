@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using DataSource.Seeds;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -29,18 +28,12 @@ namespace DataSource
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"Connecting string is not valid. Please check the connecting string at appsettings.json, then try again");
+                    Console.WriteLine($"Connection string is not valid. Please check the connection string at appsettings.json, then try again");
                     throw;
                 }
 
                 Console.WriteLine($"Database confirmed...");
             }
-
-            await EmployeeSourceSeeding.Run();
-            await EmployeeTargetSeeding.Run();
-
-            await StudentSourceSeeding.Run();
-            await StudentTargetSeeding.Run();
         }
 
 
