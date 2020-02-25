@@ -35,8 +35,8 @@ A generic table matching console application using .net core and entity framewor
 ##### Limitations
 As I have used code first approach there are some limitations which I should notice.
 1. For new tables is database, need to create new models and add the models reference on AuditorDbContext and also need to create a new migration using Add-Migration command
-2. For working with any database(database first approved or sql query version) just changing the connection string, the existing application needs some breaking changes. I will update it in later versions.
-3. To test the existing database, they need to use entity framework core command Scaffold-DbContext for DataSource project and replace the AuditorDbContext with the Scaffold generated DbContext. In my next release I will have the context configured at first.
+2. For working with any database just changing the connection string, the existing application needs some breaking changes. Hopefully I will have time to update it in a later version. (Maybe I can achieve this with a dynamic context creator or changing to database first approach or in a raw sql query version). Any other good advice is appriciateable 
+3. To test the existing database, there needs to use entity framework core command Scaffold-DbContext for DataSource project and replace the AuditorDbContext references with the Scaffold generated DbContext. In my next release I will make the changes to configured the context in a single place at the starting point of the application
 
 
 ##### Sample 
