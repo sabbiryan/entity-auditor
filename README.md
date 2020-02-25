@@ -10,8 +10,9 @@ A generic table matching console application using .net core and entity framewor
 ##### Download
 1. Download an executable exe version from <a href="https://github.com/sabbiryan/entity-auditor/tree/master/EXE">here</a>
 2. Extract the zip.
-3. Update the appsetting.json with your database service name "Default": "server=YourDatabaseServerName;database=AuditorDb;Trusted_Connection=True;"
+3. Update the appsetting.json with your database server name "Default": "server=YourDatabaseServerName;database=AuditorDb;Trusted_Connection=True;"
 4. Run Client.exe and start playing.
+5. Sample entity names : EmployeeSource.cs EmployeeTarget.cs StudentSource.cs StudentTarget.cs
 
 ##### View Insights
 1. Starting point : Program.cs
