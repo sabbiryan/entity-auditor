@@ -12,7 +12,10 @@ A generic table matching console application using .net core and entity framewor
 2. Extract the zip.
 3. Update the appsetting.json with your database server name "Default": "server=YourDatabaseServerName;database=AuditorDb;Trusted_Connection=True;"
 4. Run Client.exe and start playing.
-5. Sample entity names : EmployeeSource.cs EmployeeTarget.cs StudentSource.cs StudentTarget.cs
+5. Sample inputs : 
+    
+    1. Empployee Source | Employee Target | Social Security Number
+    2. Student Source | Student Target | Student Id
 
 ##### View Insights
 1. Starting point : Program.cs
